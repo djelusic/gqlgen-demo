@@ -1,0 +1,35 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type Odd {
+  id: Int!
+  name: String
+  value: Float
+}
+
+type Market {
+  id: Int!
+  name: String
+  odds: [Odd!]
+}
+
+type Event {
+  id: Int!
+  name: String
+  markets: [Market!]
+}
+
+type Offer {
+  events: [Event!]
+}
+
+type Query {
+  offer: Offer
+  event(id: Int!): Event
+}
+
+type Subscription {
+  offer: Offer
+  event(id: Int!): Event
+}
